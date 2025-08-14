@@ -1,0 +1,5 @@
+Privacy Policy — Npcalc Dark Cylinder
+
+This app does not collect, store, or share personal data.
+No analytics, no third-party SDKs, and no network access are used.
+All calculations occur locally on your device.

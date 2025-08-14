@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="npcolor_background_main">#101114</color>
+	<color name="npcolor_surface">#17191D</color>
+	<color name="npcolor_surface_variant">#1F2228</color>
+	<color name="npcolor_accent">#6EE7F2</color>
+	<color name="npcolor_accent_pressed">#48C9D6</color>
+	<color name="npcolor_text_primary">#E9EEF3</color>
+	<color name="npcolor_text_secondary">#A8B0BA</color>
+	<color name="npcolor_warning">#FF6B6B</color>
+</resources>

@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/npcolor_background_main">
+
+	<TextView
+		android:id="@+id/txtNpPrimary"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="24dp"
+		android:layout_marginEnd="24dp"
+		android:layout_marginTop="32dp"
+		android:text="0"
+		android:textColor="@color/npcolor_text_primary"
+		android:textSize="48sp"
+		android:maxLines="1"
+		android:ellipsize="end"
+		app:layout_constrainedWidth="true"
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintEnd_toEndOf="parent" />
+
+	<androidx.gridlayout.widget.GridLayout
+		android:id="@+id/gridNpKeys"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:layout_margin="16dp"
+		android:alignmentMode="alignMargins"
+		android:columnCount="4"
+		android:rowCount="5"
+		app:layout_constraintTop_toBottomOf="@id/txtNpPrimary"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintEnd_toEndOf="parent">
+
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/btnNpClear"
+			style="@style/NpcalcPillButtonStyle"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:layout_margin="6dp"
+			android:text="C"
+			android:contentDescription="@string/npcalc_desc_clear"
+			app:layout_columnWeight="1"
+			app:layout_rowWeight="1" />
+
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/btnNpBackspace"
+			style="@style/NpcalcPillButtonStyle"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:layout_margin="6dp"
+			android:contentDescription="@string/npcalc_desc_backspace"
+			app:icon="@drawable/np_ic_backspace"
+			app:iconTint="@color/npcolor_text_primary"
+			app:layout_columnWeight="1"
+			app:layout_rowWeight="1" />
+
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/btnNpPercent"
+			style="@style/NpcalcPillButtonStyle"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:layout_margin="6dp"
+			android:text="%"
+			android:contentDescription="@string/npcalc_desc_percent"
+			app:layout_columnWeight="1"
+			app:layout_rowWeight="1" />
+
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/btnNpDivide"
+			style="@style/NpcalcPillButtonStyle"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:layout_margin="6dp"
+			android:text="÷"
+			android:contentDescription="@string/npcalc_desc_divide"
+			app:layout_columnWeight="1"
+			app:layout_rowWeight="1" />
+
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/btnNpDigit7"
+			style="@style/NpcalcPillButtonStyle"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:layout_margin="6dp"
+			android:text="7"
+			app:layout_columnWeight="1"
+			app:layout_rowWeight="1" />
+
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/btnNpDigit8"
+			style="@style/NpcalcPillButtonStyle"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:layout_margin="6dp"
+			android:text="8"
+			app:layout_columnWeight="1"
+			app:layout_rowWeight="1" />
+
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/btnNpDigit9"
+			style="@style/NpcalcPillButtonStyle"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:layout_margin="6dp"
+			android:text="9"
+			app:layout_columnWeight="1"
+			app:layout_rowWeight="1" />
+
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/btnNpMultiply"
+			style="@style/NpcalcPillButtonStyle"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:layout_margin="6dp"
+			android:text="×"
+			android:contentDescription="@string/npcalc_desc_multiply"
+			app:layout_columnWeight="1"
+			app:layout_rowWeight="1" />
+
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/btnNpDigit4"
+			style="@style/NpcalcPillButtonStyle"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:layout_margin="6dp"
+			android:text="4"
+			app:layout_columnWeight="1"
+			app:layout_rowWeight="1" />
+
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/btnNpDigit5"
+			style="@style/NpcalcPillButtonStyle"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:layout_margin="6dp"
+			android:text="5"
+			app:layout_columnWeight="1"
+			app:layout_rowWeight="1" />
+
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/btnNpDigit6"
+			style="@style/NpcalcPillButtonStyle"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:layout_margin="6dp"
+			android:text="6"
+			app:layout_columnWeight="1"
+			app:layout_rowWeight="1" />
+
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/btnNpMinus"
+			style="@style/NpcalcPillButtonStyle"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:layout_margin="6dp"
+			android:text="-"
+			android:contentDescription="@string/npcalc_desc_minus"
+			app:layout_columnWeight="1"
+			app:layout_rowWeight="1" />
+
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/btnNpDigit1"
+			style="@style/NpcalcPillButtonStyle"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:layout_margin="6dp"
+			android:text="1"
+			app:layout_columnWeight="1"
+			app:layout_rowWeight="1" />
+
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/btnNpDigit2"
+			style="@style/NpcalcPillButtonStyle"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:layout_margin="6dp"
+			android:text="2"
+			app:layout_columnWeight="1"
+			app:layout_rowWeight="1" />
+
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/btnNpDigit3"
+			style="@style/NpcalcPillButtonStyle"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:layout_margin="6dp"
+			android:text="3"
+			app:layout_columnWeight="1"
+			app:layout_rowWeight="1" />
+
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/btnNpPlus"
+			style="@style/NpcalcPillButtonStyle"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:layout_margin="6dp"
+			android:text="+"
+			android:contentDescription="@string/npcalc_desc_plus"
+			app:layout_columnWeight="1"
+			app:layout_rowWeight="1" />
+
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/btnNpSign"
+			style="@style/NpcalcPillButtonStyle"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:layout_margin="6dp"
+			android:text="±"
+			android:contentDescription="@string/npcalc_desc_sign"
+			app:layout_columnWeight="1"
+			app:layout_rowWeight="1" />
+
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/btnNpDigit0"
+			style="@style/NpcalcPillButtonStyle"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:layout_margin="6dp"
+			android:text="0"
+			app:layout_columnSpan="2"
+			app:layout_columnWeight="2"
+			app:layout_rowWeight="1" />
+
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/btnNpDot"
+			style="@style/NpcalcPillButtonStyle"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:layout_margin="6dp"
+			android:text="."
+			app:layout_columnWeight="1"
+			app:layout_rowWeight="1" />
+
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/btnNpEquals"
+			style="@style/NpcalcPillButtonStyle"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:layout_margin="6dp"
+			android:text="="
+			android:contentDescription="@string/npcalc_desc_equals"
+			app:layout_columnWeight="1"
+			app:layout_rowWeight="1" />
+
+	</androidx.gridlayout.widget.GridLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
