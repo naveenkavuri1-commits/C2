@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="npcalc_app_name">Npcalc Dark Cylinder</string>
+	<string name="npcalc_desc_backspace">Backspace</string>
+	<string name="npcalc_desc_clear">Clear</string>
+	<string name="npcalc_desc_equals">Equals</string>
+	<string name="npcalc_desc_plus">Add</string>
+	<string name="npcalc_desc_minus">Subtract</string>
+	<string name="npcalc_desc_multiply">Multiply</string>
+	<string name="npcalc_desc_divide">Divide</string>
+	<string name="npcalc_desc_sign">Toggle Sign</string>
+	<string name="npcalc_desc_percent">Percent</string>
+</resources>
