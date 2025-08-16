@@ -23,6 +23,8 @@ public class NpcalcMainActivity extends AppCompatActivity implements View.OnClic
 
 	private final MathContext preciseContext = new MathContext(16);
 
+	private String expressionPreviewText = "";
+
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -31,6 +33,7 @@ public class NpcalcMainActivity extends AppCompatActivity implements View.OnClic
 
 		configureAllButtons();
 		refreshPrimaryDisplay("0");
+		refreshExpressionDisplay("");
 	}
 
 	private void configureAllButtons() {
@@ -98,6 +101,7 @@ public class NpcalcMainActivity extends AppCompatActivity implements View.OnClic
 			inputDigitsBuffer += digit;
 		}
 		refreshPrimaryDisplay(inputDigitsBuffer);
+		refreshExpressionDisplay(buildExpressionPreview());
 	}
 
 	private void appendDot() {
@@ -111,6 +115,7 @@ public class NpcalcMainActivity extends AppCompatActivity implements View.OnClic
 			inputDigitsBuffer += ".";
 		}
 		refreshPrimaryDisplay(inputDigitsBuffer);
+		refreshExpressionDisplay(buildExpressionPreview());
 	}
 
 	private void handleBinaryOperator(String operatorSymbol) {
@@ -124,6 +129,7 @@ public class NpcalcMainActivity extends AppCompatActivity implements View.OnClic
 			inputDigitsBuffer = "";
 		}
 		pendingBinaryOperator = operatorSymbol;
+		refreshExpressionDisplay(buildExpressionPreview());
 	}
 
 	private void computeEquals() {
@@ -133,6 +139,7 @@ public class NpcalcMainActivity extends AppCompatActivity implements View.OnClic
 			refreshPrimaryDisplay(safeToPlainString(lastStoredValue));
 			pendingBinaryOperator = "";
 			nextInputShouldReset = true;
+			refreshExpressionDisplay("");
 		}
 	}
 
@@ -158,6 +165,7 @@ public class NpcalcMainActivity extends AppCompatActivity implements View.OnClic
 		pendingBinaryOperator = "";
 		nextInputShouldReset = false;
 		refreshPrimaryDisplay("0");
+		refreshExpressionDisplay("");
 	}
 
 	private void backspaceOneDigit() {
@@ -165,6 +173,7 @@ public class NpcalcMainActivity extends AppCompatActivity implements View.OnClic
 			inputDigitsBuffer = inputDigitsBuffer.substring(0, inputDigitsBuffer.length() - 1);
 			if (inputDigitsBuffer.isEmpty()) inputDigitsBuffer = "0";
 			refreshPrimaryDisplay(inputDigitsBuffer);
+			refreshExpressionDisplay(buildExpressionPreview());
 		}
 	}
 
@@ -176,6 +185,7 @@ public class NpcalcMainActivity extends AppCompatActivity implements View.OnClic
 			inputDigitsBuffer = "-" + inputDigitsBuffer;
 		}
 		refreshPrimaryDisplay(inputDigitsBuffer);
+		refreshExpressionDisplay(buildExpressionPreview());
 	}
 
 	private void applyPercentOperation() {
@@ -185,10 +195,27 @@ public class NpcalcMainActivity extends AppCompatActivity implements View.OnClic
 		value = value.divide(hundred, preciseContext);
 		inputDigitsBuffer = safeToPlainString(value);
 		refreshPrimaryDisplay(inputDigitsBuffer);
+		refreshExpressionDisplay(buildExpressionPreview());
 	}
 
 	private void refreshPrimaryDisplay(String text) {
 		binding.txtNpPrimary.setText(formatForHuman(text));
+	}
+
+	private void refreshExpressionDisplay(String text) {
+		expressionPreviewText = text == null ? "" : text;
+		binding.txtNpExpression.setText(expressionPreviewText);
+	}
+
+	private String buildExpressionPreview() {
+		String left = lastStoredValue != null ? (pendingBinaryOperator.isEmpty() ? inputDigitsBuffer : safeToPlainString(lastStoredValue)) : "";
+		String op = pendingBinaryOperator;
+		String right = pendingBinaryOperator.isEmpty() ? "" : inputDigitsBuffer;
+		StringBuilder sb = new StringBuilder();
+		if (left != null && !left.isEmpty()) sb.append(left);
+		if (op != null && !op.isEmpty()) sb.append(" ").append(op).append(" ");
+		if (right != null && !right.isEmpty()) sb.append(right);
+		return sb.toString();
 	}
 
 	private String safeToPlainString(BigDecimal big) {
