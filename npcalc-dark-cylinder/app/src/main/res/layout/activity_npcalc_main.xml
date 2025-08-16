@@ -283,7 +283,7 @@
 			android:layout_margin="6dp"
 			android:text="="
 			android:contentDescription="@string/npcalc_desc_equals"
-			android:background="@drawable/shape_np_pill_button_equal"
+			android:background="@drawable/np_equal_button_bg"
 			android:textColor="@color/npcolor_background_main"
 			app:layout_columnWeight="1"
 			app:layout_rowWeight="1" />
