@@ -85,6 +85,7 @@
 			android:layout_margin="6dp"
 			android:text="÷"
 			android:contentDescription="@string/npcalc_desc_divide"
+			android:background="@drawable/np_operator_button_bg"
 			app:layout_columnWeight="1"
 			app:layout_rowWeight="1" />
 
@@ -134,6 +135,7 @@
 			android:layout_margin="6dp"
 			android:text="×"
 			android:contentDescription="@string/npcalc_desc_multiply"
+			android:background="@drawable/np_operator_button_bg"
 			app:layout_columnWeight="1"
 			app:layout_rowWeight="1" />
 
@@ -183,6 +185,7 @@
 			android:layout_margin="6dp"
 			android:text="-"
 			android:contentDescription="@string/npcalc_desc_minus"
+			android:background="@drawable/np_operator_button_bg"
 			app:layout_columnWeight="1"
 			app:layout_rowWeight="1" />
 
@@ -232,6 +235,7 @@
 			android:layout_margin="6dp"
 			android:text="+"
 			android:contentDescription="@string/npcalc_desc_plus"
+			android:background="@drawable/np_operator_button_bg"
 			app:layout_columnWeight="1"
 			app:layout_rowWeight="1" />
 

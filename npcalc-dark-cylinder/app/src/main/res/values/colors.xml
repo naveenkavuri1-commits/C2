@@ -8,4 +8,6 @@
 	<color name="npcolor_text_primary">#E9EEF3</color>
 	<color name="npcolor_text_secondary">#A8B0BA</color>
 	<color name="npcolor_warning">#FF6B6B</color>
+	<color name="npcolor_operator_button">#2A2F36</color>
+	<color name="npcolor_operator_button_pressed">#39414B</color>
 </resources>
