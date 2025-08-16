@@ -15,7 +15,7 @@
 		<item name="android:insetTop">0dp</item>
 		<item name="android:insetBottom">0dp</item>
 		<item name="android:textColor">@color/npcolor_text_primary</item>
-		<item name="android:textSize">22sp</item>
+		<item name="android:textSize">26sp</item>
 		<item name="android:background">@drawable/shape_np_pill_button</item>
 	</style>
 
