@@ -1,4 +1,4 @@
-# Npcalc Dark Cylinder (Java, Android)
+# NP Calc – Dark Cylinder (Java, Android)
 
 A clean dark-theme calculator with cylindrical buttons and unique identifiers, built in Java.
 
