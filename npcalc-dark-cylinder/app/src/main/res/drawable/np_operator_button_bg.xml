@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ripple xmlns:android="http://schemas.android.com/apk/res/android" android:color="@color/npcolor_operator_button_pressed">
+<ripple xmlns:android="http://schemas.android.com/apk/res/android" android:color="@color/npcolor_operator_pressed">
 	<item>
 		<shape android:shape="rectangle">
-			<solid android:color="@color/npcolor_operator_button" />
+			<solid android:color="@color/npcolor_operator_idle" />
 			<corners android:radius="18dp" />
 		</shape>
 	</item>

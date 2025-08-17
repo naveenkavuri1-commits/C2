@@ -28,5 +28,10 @@ public class NpcalcHistoryActivity extends AppCompatActivity {
 		List<String> snapshot = NpcalcHistoryStore.getSnapshot();
 		NpcalcHistoryAdapter adapter = new NpcalcHistoryAdapter(snapshot);
 		list.setAdapter(adapter);
+
+		findViewById(R.id.btnNpClearHistory).setOnClickListener(v -> {
+			NpcalcHistoryStore.clearAll();
+			list.setAdapter(new NpcalcHistoryAdapter(NpcalcHistoryStore.getSnapshot()));
+		});
 	}
 }
