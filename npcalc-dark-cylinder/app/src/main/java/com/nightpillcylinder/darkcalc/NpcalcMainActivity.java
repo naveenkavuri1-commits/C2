@@ -141,11 +141,14 @@ public class NpcalcMainActivity extends AppCompatActivity implements View.OnClic
 
 	private void computeEquals() {
 		if (!pendingBinaryOperator.isEmpty() && !inputDigitsBuffer.isEmpty()) {
+			String leftText = safeToPlainString(lastStoredValue);
+			String opText = pendingBinaryOperator;
+			String rightText = inputDigitsBuffer;
 			BigDecimal right = new BigDecimal(inputDigitsBuffer);
 			lastStoredValue = computeBinary(pendingBinaryOperator, lastStoredValue, right);
 			String result = safeToPlainString(lastStoredValue);
 			refreshPrimaryDisplay(result);
-			NpcalcHistoryStore.addEntry(buildExpressionPreview() + " = " + result);
+			NpcalcHistoryStore.addEntry(leftText + " " + opText + " " + rightText + " = " + result);
 			pendingBinaryOperator = "";
 			nextInputShouldReset = true;
 			refreshExpressionDisplay("");
