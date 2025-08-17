@@ -77,7 +77,8 @@ public class NpcalcMainActivity extends AppCompatActivity implements View.OnClic
 			return;
 		}
 		if (id == binding.btnNpHistory.getId()) {
-			showHistoryPeek();
+			android.content.Intent intent = new android.content.Intent(this, NpcalcHistoryActivity.class);
+			startActivity(intent);
 			return;
 		}
 
@@ -142,8 +143,9 @@ public class NpcalcMainActivity extends AppCompatActivity implements View.OnClic
 		if (!pendingBinaryOperator.isEmpty() && !inputDigitsBuffer.isEmpty()) {
 			BigDecimal right = new BigDecimal(inputDigitsBuffer);
 			lastStoredValue = computeBinary(pendingBinaryOperator, lastStoredValue, right);
-			refreshPrimaryDisplay(safeToPlainString(lastStoredValue));
-			appendHistoryEntry(buildExpressionPreview() + " = " + safeToPlainString(lastStoredValue));
+			String result = safeToPlainString(lastStoredValue);
+			refreshPrimaryDisplay(result);
+			NpcalcHistoryStore.addEntry(buildExpressionPreview() + " = " + result);
 			pendingBinaryOperator = "";
 			nextInputShouldReset = true;
 			refreshExpressionDisplay("");
@@ -241,25 +243,5 @@ public class NpcalcMainActivity extends AppCompatActivity implements View.OnClic
 		} catch (Exception e) {
 			return raw;
 		}
-	}
-
-	private void appendHistoryEntry(String entry) {
-		if (entry == null || entry.trim().isEmpty()) return;
-		calcHistoryLog.addFirst(entry.trim());
-		while (calcHistoryLog.size() > 50) {
-			calcHistoryLog.removeLast();
-		}
-	}
-
-	private void showHistoryPeek() {
-		StringBuilder sb = new StringBuilder();
-		int count = 0;
-		for (String s : calcHistoryLog) {
-			sb.append(s);
-			count++;
-			if (count >= 3) break;
-			sb.append("\n");
-		}
-		android.widget.Toast.makeText(this, sb.length() == 0 ? "No history" : sb.toString(), android.widget.Toast.LENGTH_SHORT).show();
 	}
 }

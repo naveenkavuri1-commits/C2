@@ -13,9 +13,10 @@
 		android:layout_marginTop="8dp"
 		android:layout_marginEnd="@dimen/npdim_display_padding_horizontal"
 		android:background="@drawable/shape_np_pill_button"
+		android:contentDescription="@string/npcalc_history_title"
 		app:iconTint="@color/npcolor_text_primary"
 		app:iconSize="@dimen/npdim_top_icon_size"
-		app:icon="@drawable/np_ic_backspace"
+		app:icon="@drawable/np_ic_arrow_back"
 		app:layout_constraintTop_toTopOf="parent"
 		app:layout_constraintEnd_toEndOf="parent" />
 

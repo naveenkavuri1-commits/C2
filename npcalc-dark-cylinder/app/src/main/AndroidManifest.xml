@@ -9,6 +9,9 @@
 		android:supportsRtl="true"
 		android:theme="@style/Theme.NpcalcDark">
 		<activity
+			android:name=".NpcalcHistoryActivity"
+			android:exported="false" />
+		<activity
 			android:name=".NpcalcMainActivity"
 			android:exported="true"
 			android:screenOrientation="portrait">

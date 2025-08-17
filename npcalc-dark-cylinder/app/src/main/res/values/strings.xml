@@ -10,4 +10,5 @@
 	<string name="npcalc_desc_divide">Divide</string>
 	<string name="npcalc_desc_sign">Toggle Sign</string>
 	<string name="npcalc_desc_percent">Percent</string>
+	<string name="npcalc_history_title">History</string>
 </resources>

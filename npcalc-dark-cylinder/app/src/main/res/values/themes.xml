@@ -7,6 +7,7 @@
 		<item name="colorSecondary">@color/npcolor_accent</item>
 		<item name="android:windowBackground">@color/npcolor_background_main</item>
 		<item name="materialButtonStyle">@style/NpcalcPillButtonStyle</item>
+		<item name="toolbarStyle">@style/NpcalcToolbarStyle</item>
 	</style>
 
 	<style name="NpcalcPillButtonStyle" parent="Widget.Material3.Button">
@@ -24,5 +25,11 @@
 		<item name="android:minHeight">64dp</item>
 		<item name="android:background">@drawable/shape_np_pill_button</item>
 		<item name="android:tint">@color/npcolor_text_primary</item>
+	</style>
+
+	<style name="NpcalcToolbarStyle" parent="Widget.Material3.Toolbar">
+		<item name="titleTextColor">@color/npcolor_text_primary</item>
+		<item name="subtitleTextColor">@color/npcolor_text_secondary</item>
+		<item name="android:background">@android:color/transparent</item>
 	</style>
 </resources>
