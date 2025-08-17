@@ -128,8 +128,6 @@
 			android:layout_margin="@dimen/npdim_key_margin"
 			android:text="÷"
 			android:contentDescription="@string/npcalc_desc_divide"
-			android:background="@drawable/np_operator_button_bg"
-			android:backgroundTint="@null"
 			app:layout_columnWeight="1"
 			app:layout_rowWeight="1" />
 
@@ -179,8 +177,6 @@
 			android:layout_margin="@dimen/npdim_key_margin"
 			android:text="×"
 			android:contentDescription="@string/npcalc_desc_multiply"
-			android:background="@drawable/np_operator_button_bg"
-			android:backgroundTint="@null"
 			app:layout_columnWeight="1"
 			app:layout_rowWeight="1" />
 
@@ -230,8 +226,6 @@
 			android:layout_margin="@dimen/npdim_key_margin"
 			android:text="-"
 			android:contentDescription="@string/npcalc_desc_minus"
-			android:background="@drawable/np_operator_button_bg"
-			android:backgroundTint="@null"
 			app:layout_columnWeight="1"
 			app:layout_rowWeight="1" />
 
@@ -281,8 +275,6 @@
 			android:layout_margin="@dimen/npdim_key_margin"
 			android:text="+"
 			android:contentDescription="@string/npcalc_desc_plus"
-			android:background="@drawable/np_operator_button_bg"
-			android:backgroundTint="@null"
 			app:layout_columnWeight="1"
 			app:layout_rowWeight="1" />
 
@@ -296,8 +288,6 @@
 			android:layout_margin="@dimen/npdim_key_margin"
 			android:text="±"
 			android:contentDescription="@string/npcalc_desc_sign"
-			android:background="@drawable/np_operator_button_bg"
-			android:backgroundTint="@null"
 			app:layout_columnWeight="1"
 			app:layout_rowWeight="1" />
 
@@ -323,8 +313,6 @@
 			android:minHeight="64dp"
 			android:layout_margin="@dimen/npdim_key_margin"
 			android:text="."
-			android:background="@drawable/np_operator_button_bg"
-			android:backgroundTint="@null"
 			app:layout_columnWeight="1"
 			app:layout_rowWeight="1" />
 
