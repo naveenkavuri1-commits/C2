@@ -25,6 +25,8 @@ public class NpcalcMainActivity extends AppCompatActivity implements View.OnClic
 
 	private String expressionPreviewText = "";
 
+	private final java.util.LinkedList<String> calcHistoryLog = new java.util.LinkedList<>();
+
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -43,7 +45,7 @@ public class NpcalcMainActivity extends AppCompatActivity implements View.OnClic
 			binding.btnNpDigit8, binding.btnNpDigit9, binding.btnNpDot,
 			binding.btnNpPlus, binding.btnNpMinus, binding.btnNpMultiply, binding.btnNpDivide,
 			binding.btnNpEquals, binding.btnNpClear, binding.btnNpBackspace,
-			binding.btnNpSign, binding.btnNpPercent
+			binding.btnNpSign, binding.btnNpPercent, binding.btnNpHistory
 		};
 		for (View v : allButtons) {
 			v.setOnClickListener(this);
@@ -72,6 +74,10 @@ public class NpcalcMainActivity extends AppCompatActivity implements View.OnClic
 
 		if (id == binding.btnNpEquals.getId()) {
 			computeEquals();
+			return;
+		}
+		if (id == binding.btnNpHistory.getId()) {
+			showHistoryPeek();
 			return;
 		}
 
@@ -137,6 +143,7 @@ public class NpcalcMainActivity extends AppCompatActivity implements View.OnClic
 			BigDecimal right = new BigDecimal(inputDigitsBuffer);
 			lastStoredValue = computeBinary(pendingBinaryOperator, lastStoredValue, right);
 			refreshPrimaryDisplay(safeToPlainString(lastStoredValue));
+			appendHistoryEntry(buildExpressionPreview() + " = " + safeToPlainString(lastStoredValue));
 			pendingBinaryOperator = "";
 			nextInputShouldReset = true;
 			refreshExpressionDisplay("");
@@ -234,5 +241,25 @@ public class NpcalcMainActivity extends AppCompatActivity implements View.OnClic
 		} catch (Exception e) {
 			return raw;
 		}
+	}
+
+	private void appendHistoryEntry(String entry) {
+		if (entry == null || entry.trim().isEmpty()) return;
+		calcHistoryLog.addFirst(entry.trim());
+		while (calcHistoryLog.size() > 50) {
+			calcHistoryLog.removeLast();
+		}
+	}
+
+	private void showHistoryPeek() {
+		StringBuilder sb = new StringBuilder();
+		int count = 0;
+		for (String s : calcHistoryLog) {
+			sb.append(s);
+			count++;
+			if (count >= 3) break;
+			sb.append("\n");
+		}
+		android.widget.Toast.makeText(this, sb.length() == 0 ? "No history" : sb.toString(), android.widget.Toast.LENGTH_SHORT).show();
 	}
 }

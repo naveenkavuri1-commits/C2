@@ -5,6 +5,20 @@
 	android:layout_height="match_parent"
 	android:background="@color/npcolor_background_main">
 
+	<com.google.android.material.button.MaterialButton
+		android:id="@+id/btnNpHistory"
+		style="@style/NpcalcIconButtonStyle"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="8dp"
+		android:layout_marginEnd="@dimen/npdim_display_padding_horizontal"
+		android:background="@drawable/shape_np_pill_button"
+		app:iconTint="@color/npcolor_text_primary"
+		app:iconSize="@dimen/npdim_top_icon_size"
+		app:icon="@drawable/np_ic_backspace"
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintEnd_toEndOf="parent" />
+
 	<TextView
 		android:id="@+id/txtNpExpression"
 		android:layout_width="0dp"
@@ -14,11 +28,15 @@
 		android:layout_marginTop="@dimen/npdim_display_margin_top_large"
 		android:text=""
 		android:textColor="@color/npcolor_text_secondary"
-		android:textSize="18sp"
+		android:textSize="@dimen/npdim_text_expression"
 		android:maxLines="1"
+		android:autoSizeTextType="uniform"
+		android:autoSizeMinTextSize="@dimen/npdim_text_expression_min"
+		android:autoSizeMaxTextSize="@dimen/npdim_text_expression_max"
+		android:autoSizeStepGranularity="1sp"
 		android:ellipsize="end"
 		app:layout_constrainedWidth="true"
-		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/btnNpHistory"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintEnd_toEndOf="parent" />
 
@@ -33,6 +51,10 @@
 		android:textColor="@color/npcolor_text_primary"
 		android:textSize="@dimen/npdim_text_primary"
 		android:maxLines="1"
+		android:autoSizeTextType="uniform"
+		android:autoSizeMinTextSize="@dimen/npdim_text_primary_min"
+		android:autoSizeMaxTextSize="@dimen/npdim_text_primary_max"
+		android:autoSizeStepGranularity="1sp"
 		android:ellipsize="end"
 		app:layout_constrainedWidth="true"
 		app:layout_constraintTop_toBottomOf="@id/txtNpExpression"
