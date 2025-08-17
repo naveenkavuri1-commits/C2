@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<dimen name="npdim_screen_padding">16dp</dimen>
+	<dimen name="npdim_key_margin">8dp</dimen>
+	<dimen name="npdim_display_padding_horizontal">24dp</dimen>
+	<dimen name="npdim_display_margin_top_small">8dp</dimen>
+	<dimen name="npdim_display_margin_top_large">16dp</dimen>
+	<dimen name="npdim_text_primary">48sp</dimen>
+	<dimen name="npdim_text_expression">18sp</dimen>
+</resources>
