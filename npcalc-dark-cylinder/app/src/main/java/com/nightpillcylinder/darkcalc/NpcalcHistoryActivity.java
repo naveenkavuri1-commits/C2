@@ -5,29 +5,28 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import com.nightpillcylinder.darkcalc.databinding.ActivityNpcalcHistoryBinding;
+import com.google.android.material.appbar.MaterialToolbar;
 
 import java.util.List;
 
 public class NpcalcHistoryActivity extends AppCompatActivity {
 
-	private ActivityNpcalcHistoryBinding binding;
-	private NpcalcHistoryAdapter adapter;
-
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		binding = ActivityNpcalcHistoryBinding.inflate(getLayoutInflater());
-		setContentView(binding.getRoot());
+		setContentView(R.layout.activity_npcalc_history);
 
-		binding.toolbarNpHistory.setTitle(getString(R.string.npcalc_history_title));
-		binding.toolbarNpHistory.setNavigationIcon(R.drawable.np_ic_arrow_back);
-		binding.toolbarNpHistory.setNavigationOnClickListener(v -> finish());
+		MaterialToolbar toolbar = findViewById(R.id.toolbarNpHistory);
+		toolbar.setTitle(getString(R.string.npcalc_history_title));
+		toolbar.setNavigationIcon(R.drawable.np_ic_arrow_back);
+		toolbar.setNavigationOnClickListener(v -> finish());
 
-		binding.listNpHistory.setLayoutManager(new LinearLayoutManager(this));
+		RecyclerView list = findViewById(R.id.listNpHistory);
+		list.setLayoutManager(new LinearLayoutManager(this));
 		List<String> snapshot = NpcalcHistoryStore.getSnapshot();
-		adapter = new NpcalcHistoryAdapter(snapshot);
-		binding.listNpHistory.setAdapter(adapter);
+		NpcalcHistoryAdapter adapter = new NpcalcHistoryAdapter(snapshot);
+		list.setAdapter(adapter);
 	}
 }

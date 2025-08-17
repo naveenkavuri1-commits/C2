@@ -1,13 +1,12 @@
 package com.nightpillcylinder.darkcalc;
 
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.nightpillcylinder.darkcalc.databinding.ItemNpHistoryBinding;
 
 import java.util.List;
 
@@ -22,8 +21,8 @@ public class NpcalcHistoryAdapter extends RecyclerView.Adapter<NpcalcHistoryAdap
 	@NonNull
 	@Override
 	public NpHistoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-		ItemNpHistoryBinding binding = ItemNpHistoryBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
-		return new NpHistoryViewHolder(binding);
+		View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_np_history, parent, false);
+		return new NpHistoryViewHolder(view);
 	}
 
 	@Override
@@ -39,9 +38,9 @@ public class NpcalcHistoryAdapter extends RecyclerView.Adapter<NpcalcHistoryAdap
 
 	static class NpHistoryViewHolder extends RecyclerView.ViewHolder {
 		final TextView textView;
-		NpHistoryViewHolder(ItemNpHistoryBinding binding) {
-			super(binding.getRoot());
-			this.textView = binding.txtNpHistoryItem;
+		NpHistoryViewHolder(View itemView) {
+			super(itemView);
+			this.textView = itemView.findViewById(R.id.txtNpHistoryItem);
 		}
 	}
 }

@@ -7,14 +7,13 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.nightpillcylinder.darkcalc.databinding.ActivityNpcalcMainBinding;
-
 import java.math.BigDecimal;
 import java.math.MathContext;
 
 public class NpcalcMainActivity extends AppCompatActivity implements View.OnClickListener {
 
-	private ActivityNpcalcMainBinding binding;
+	private TextView txtNpPrimaryView;
+	private TextView txtNpExpressionView;
 
 	private String inputDigitsBuffer = "";
 	private BigDecimal lastStoredValue = BigDecimal.ZERO;
@@ -30,8 +29,10 @@ public class NpcalcMainActivity extends AppCompatActivity implements View.OnClic
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		binding = ActivityNpcalcMainBinding.inflate(getLayoutInflater());
-		setContentView(binding.getRoot());
+		setContentView(R.layout.activity_npcalc_main);
+
+		txtNpPrimaryView = findViewById(R.id.txtNpPrimary);
+		txtNpExpressionView = findViewById(R.id.txtNpExpression);
 
 		configureAllButtons();
 		refreshPrimaryDisplay("0");
@@ -40,55 +41,54 @@ public class NpcalcMainActivity extends AppCompatActivity implements View.OnClic
 
 	private void configureAllButtons() {
 		View[] allButtons = new View[] {
-			binding.btnNpDigit0, binding.btnNpDigit1, binding.btnNpDigit2, binding.btnNpDigit3,
-			binding.btnNpDigit4, binding.btnNpDigit5, binding.btnNpDigit6, binding.btnNpDigit7,
-			binding.btnNpDigit8, binding.btnNpDigit9, binding.btnNpDot,
-			binding.btnNpPlus, binding.btnNpMinus, binding.btnNpMultiply, binding.btnNpDivide,
-			binding.btnNpEquals, binding.btnNpClear, binding.btnNpBackspace,
-			binding.btnNpSign, binding.btnNpPercent, binding.btnNpHistory
+			findViewById(R.id.btnNpDigit0), findViewById(R.id.btnNpDigit1), findViewById(R.id.btnNpDigit2), findViewById(R.id.btnNpDigit3),
+			findViewById(R.id.btnNpDigit4), findViewById(R.id.btnNpDigit5), findViewById(R.id.btnNpDigit6), findViewById(R.id.btnNpDigit7),
+			findViewById(R.id.btnNpDigit8), findViewById(R.id.btnNpDigit9), findViewById(R.id.btnNpDot),
+			findViewById(R.id.btnNpPlus), findViewById(R.id.btnNpMinus), findViewById(R.id.btnNpMultiply), findViewById(R.id.btnNpDivide),
+			findViewById(R.id.btnNpEquals), findViewById(R.id.btnNpClear), findViewById(R.id.btnNpBackspace),
+			findViewById(R.id.btnNpSign), findViewById(R.id.btnNpPercent), findViewById(R.id.btnNpHistory)
 		};
 		for (View v : allButtons) {
-			v.setOnClickListener(this);
+			if (v != null) v.setOnClickListener(this);
 		}
 	}
 
 	@Override
 	public void onClick(View v) {
 		int id = v.getId();
-		if (id == binding.btnNpClear.getId()) {
+		if (id == R.id.btnNpClear) {
 			resetAllState();
 			return;
 		}
-		if (id == binding.btnNpBackspace.getId()) {
+		if (id == R.id.btnNpBackspace) {
 			backspaceOneDigit();
 			return;
 		}
-		if (id == binding.btnNpSign.getId()) {
+		if (id == R.id.btnNpSign) {
 			toggleSign();
 			return;
 		}
-		if (id == binding.btnNpPercent.getId()) {
+		if (id == R.id.btnNpPercent) {
 			applyPercentOperation();
 			return;
 		}
 
-		if (id == binding.btnNpEquals.getId()) {
+		if (id == R.id.btnNpEquals) {
 			computeEquals();
 			return;
 		}
-		if (id == binding.btnNpHistory.getId()) {
+		if (id == R.id.btnNpHistory) {
 			android.content.Intent intent = new android.content.Intent(this, NpcalcHistoryActivity.class);
 			startActivity(intent);
 			return;
 		}
 
-		if (id == binding.btnNpPlus.getId() || id == binding.btnNpMinus.getId() ||
-				id == binding.btnNpMultiply.getId() || id == binding.btnNpDivide.getId()) {
+		if (id == R.id.btnNpPlus || id == R.id.btnNpMinus || id == R.id.btnNpMultiply || id == R.id.btnNpDivide) {
 			handleBinaryOperator(((TextView) v).getText().toString());
 			return;
 		}
 
-		if (id == binding.btnNpDot.getId()) {
+		if (id == R.id.btnNpDot) {
 			appendDot();
 			return;
 		}
@@ -211,12 +211,12 @@ public class NpcalcMainActivity extends AppCompatActivity implements View.OnClic
 	}
 
 	private void refreshPrimaryDisplay(String text) {
-		binding.txtNpPrimary.setText(formatForHuman(text));
+		txtNpPrimaryView.setText(formatForHuman(text));
 	}
 
 	private void refreshExpressionDisplay(String text) {
 		expressionPreviewText = text == null ? "" : text;
-		binding.txtNpExpression.setText(expressionPreviewText);
+		txtNpExpressionView.setText(expressionPreviewText);
 	}
 
 	private String buildExpressionPreview() {
